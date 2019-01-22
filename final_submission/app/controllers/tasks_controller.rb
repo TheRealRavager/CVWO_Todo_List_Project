@@ -25,6 +25,11 @@ class TasksController < ApplicationController
 		redirect_to tasks_path
 	end
 
+	def destroy
+		@task = Task.find(params[:id])
+		@task.destroy
+		redirect_to tasks_path
+
 	private #prevents params other than those listed in permit from being passed (security issue)
 	def task_params
 		params.require(:task).permit(:title, :details)
