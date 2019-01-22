@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 	def index
 		def index
-			@tasks = Task.all
+			@tasks = Task.all #returns an active record relation
 		end
   end
 
@@ -10,6 +10,6 @@ class TasksController < ApplicationController
 	end
 	
 	def create
-		#send send task to database then throw the user back to the all tasks page.
+		#TODO send task to database then throw the user back to the all tasks page.
 	end
 end
