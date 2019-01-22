@@ -1,9 +1,13 @@
-<h1>Tasks#index</h1>
+<h1>Here are all your tasks!</h1>
 <p>This is where all the tasks should go eventually</p>
 
-<ul>
+<ul> <%# Displays every single task title%>
 	<% @tasks.each do |task| %>
-		<li> <%= task %> </li>
+		<li> 
+			<p><strong><%= task.title %></strong></p>
+			<p><em><%= task.details %></em></p>
+			<%= link_to "Edit Task", edit_task_path(task) %>
+		</li>
 	<% end %>
 </ul>
 
