@@ -1,3 +1,6 @@
+<%# returns authentication tokens for Delete Task%>
+<%= csrf_meta_tags %>
+
 <h1>Here are all your tasks!</h1>
 <p>This is where all the tasks should go eventually</p>
 
@@ -6,7 +9,8 @@
 		<li> 
 			<p><strong><%= task.title %></strong></p>
 			<p><em><%= task.details %></em></p>
-			<%= link_to 'Edit Task', edit_task_path(task) %>
+			<%#= link_to 'View Additional Details', task_path(task) %><br>
+			<%= link_to 'Edit Task', edit_task_path(task) %><br>
 			<%= link_to 'Delete Task', task_path(task), method: :delete %>
 		</li>
 	<% end %>

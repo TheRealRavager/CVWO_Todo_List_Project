@@ -29,6 +29,7 @@ class TasksController < ApplicationController
 		@task = Task.find(params[:id])
 		@task.destroy
 		redirect_to tasks_path
+	end
 
 	private #prevents params other than those listed in permit from being passed (security issue)
 	def task_params
