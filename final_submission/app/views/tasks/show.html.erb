@@ -1,0 +1,8 @@
+<%= csrf_meta_tags %>
+<p><strong><%= @task.title %></strong></p>
+<p><em><%= @task.details %></em></p>
+<%= link_to 'Edit Task', edit_task_path(@task) %><br>
+<%= link_to 'Delete Task', task_path(@task),
+	data: { confirm: 'Confirm Deletion?' }, method: :delete %><br>
+<br>
+<%= link_to 'Return to list of tasks', tasks_path %>

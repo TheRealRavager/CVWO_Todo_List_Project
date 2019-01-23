@@ -7,11 +7,7 @@
 <ul> <%# Displays every single task title%>
 	<% @tasks.each do |task| %>
 		<li> 
-			<p><strong><%= task.title %></strong></p>
-			<p><em><%= task.details %></em></p>
-			<%#= link_to 'View Additional Details', task_path(task) %><br>
-			<%= link_to 'Edit Task', edit_task_path(task) %><br>
-			<%= link_to 'Delete Task', task_path(task), method: :delete %>
+			<p><strong><%= link_to task.title, task_path(task) %></strong></p>
 		</li>
 	<% end %>
 </ul>

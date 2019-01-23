@@ -3,6 +3,10 @@ class TasksController < ApplicationController
 		@tasks = Task.all #returns an active record relation
 	end
 
+	def show
+		@task = Task.find(params[:id])
+	end
+
 	def new
 		@task = Task.new
 	end
