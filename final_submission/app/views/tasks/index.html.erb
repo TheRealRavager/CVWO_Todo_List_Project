@@ -8,6 +8,7 @@
 	<% @tasks.each do |task| %>
 		<li> 
 			<p><strong><%= link_to task.title, task_path(task) %></strong></p>
+			<p><%= "Completed: " + task.completed.to_s %></p>
 		</li>
 	<% end %>
 </ul>
