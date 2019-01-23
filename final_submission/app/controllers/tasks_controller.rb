@@ -14,9 +14,11 @@ class TasksController < ApplicationController
 	#is called when submit is pressed on form. When submit is pressed, it outputs a hash of parameters included in the form.
 	def create
 		@task = Task.new(task_params)
-		@task.save
-		redirect_to tasks_path #redirects user to main task page (tasks#index)
-		#TODO send task to database then throw the user back to the all tasks page.
+		if @task.save
+			redirect_to tasks_path #redirects user to main task page (tasks#index)
+		else
+			render 'new'
+		end
 	end
 
 	def edit
@@ -25,8 +27,11 @@ class TasksController < ApplicationController
 
 	def update
 		@task = Task.find(params[:id])
-		@task.update(task_params)
-		redirect_to tasks_path
+		if @task.update(task_params)
+			redirect_to tasks_path
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
