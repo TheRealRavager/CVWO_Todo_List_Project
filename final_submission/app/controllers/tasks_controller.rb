@@ -42,6 +42,6 @@ class TasksController < ApplicationController
 
 	private #prevents params other than those listed in permit from being passed (security issue)
 	def task_params
-		params.require(:task).permit(:title, :details)
+		params.require(:task).permit(:title, :details, :completed)
 	end
 end
