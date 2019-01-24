@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+	include TasksHelper
 	def index
 		@tasks = Task.all #returns an active record relation
 	end
@@ -8,12 +9,12 @@ class TasksController < ApplicationController
 	end
 
 	def new
-		@task = Task.new
+		@task = current_user.tasks.build 
 	end
 	
 	#is called when submit is pressed on form. When submit is pressed, it outputs a hash of parameters included in the form.
 	def create
-		@task = Task.new(task_params)
+		@task = current_user.tasks.build(task_params)
 		if @task.save
 			redirect_to tasks_path #redirects user to main task page (tasks#index)
 		else

@@ -8654,3 +8654,951 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 67ms (Views: 63.1ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:24:17 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 63ms (Views: 59.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks/1" for 127.0.0.1 at 2019-01-25 01:24:20 +0800
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:7
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 68ms (Views: 62.6ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/tasks/1" for 127.0.0.1 at 2019-01-25 01:24:22 +0800
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6BPPK9h2j9sXM8SJETeuwD32xWxIBbS4xALCchF4zq9Jw7JLWGXF0Esao5qLb8OolM9bUluqn7SBnSKO1J430A==", "id"=>"1"}
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:38
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:39
+  [1m[36mTask Destroy (1.0ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:39
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:39
+Redirected to http://0.0.0.0:3000/tasks
+Completed 302 Found in 20ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:24:22 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (4.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 113ms (Views: 109.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tasks/2" for 127.0.0.1 at 2019-01-25 01:24:24 +0800
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:7
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/tasks/2" for 127.0.0.1 at 2019-01-25 01:24:25 +0800
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8EPmptGZ0AOoT7eL0MURW34CZ1dTYRY2/4UCJElPbhZRk5vGUYqaCPRm0JhKnXwz1zv5aUDOPTq6GuLYjKmXaQ==", "id"=>"2"}
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:38
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:39
+  [1m[36mTask Destroy (0.9ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/tasks_controller.rb:39
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:39
+Redirected to http://0.0.0.0:3000/tasks
+Completed 302 Found in 17ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:24:26 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 74ms (Views: 70.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:24:27 +0800
+Processing by TasksController#new as HTML
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.4ms)
+  Rendered tasks/_form.html.erb (20.6ms)
+  Rendered tasks/new.html.erb within layouts/application (26.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 88ms (Views: 85.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:24:37 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x9wU5UGeHZ5ZLl7x27SDyzwFq7Alh7y1/wSa5eCaqUmfRpO3l4X0L7LQj3pd3+Mb7/xsSsgw1J4o3qSy7j882g==", "task"=>{"title"=>"W's Task", "details"=>"Hopefully Q cant see"}, "commit"=>"Create Task"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (2.5ms)
+  Rendered tasks/_form.html.erb (6.9ms)
+  Rendered tasks/new.html.erb within layouts/application (14.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 89ms (Views: 72.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:24:40 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tzTnyYrwxj+ZmzGHJ8lwVECDgUQjLbdyXI0RXoSGCljvrmCbXOsvjnJl4AyhohCEk3pGvs6a31mLVy8JiiOfyw==", "task"=>{"title"=>"W's Task", "details"=>"Hopefully Q cant see"}, "commit"=>"Create Task"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (2.6ms)
+  Rendered tasks/_form.html.erb (7.4ms)
+  Rendered tasks/new.html.erb within layouts/application (15.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 85ms (Views: 76.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:24:41 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RqCK/+s71R1LyJJ4xBxRJWOG15Q0zj7w6A2gdSYXgBseOg2tPSA8rKA2Q/NCdzH1sH8Qbtl5Vts/154iKLIViA==", "task"=>{"title"=>"W's Task", "details"=>"Hopefully Q cant see"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.7ms)
+  Rendered tasks/_form.html.erb (5.5ms)
+  Rendered tasks/new.html.erb within layouts/application (11.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 76ms (Views: 69.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:24:42 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7pxEiiIJSnq2ulCDgUEk+/vaDyA7tJMvC9/mxRLJRhu2BsPY9BKjy11EgQgHKkQrKCPI2tYD+wTcBdiSHGzTiA==", "task"=>{"title"=>"W's Task", "details"=>"Hopefully Q cant see"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (2.0ms)
+  Rendered tasks/_form.html.erb (6.3ms)
+  Rendered tasks/new.html.erb within layouts/application (12.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 110ms (Views: 104.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:24:43 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GMXt9PozCbIlg27fES61sdA0huQbrcMtmpHlQqcvpjpAX2qmLCjgA859v1SXRdVhA81BHvYaqwZNS9sVqYozqQ==", "task"=>{"title"=>"W's Task", "details"=>"Hopefully Q cant see"}, "commit"=>"Create Task"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (2.4ms)
+  Rendered tasks/_form.html.erb (7.8ms)
+  Rendered tasks/new.html.erb within layouts/application (14.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 85ms (Views: 74.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2019-01-25 01:24:44 +0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 01:24:44 +0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-01-25 01:24:46 +0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 63ms (Views: 61.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-01-25 01:24:50 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 71ms (Views: 68.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2019-01-25 01:24:52 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 58ms (Views: 53.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-01-25 01:24:54 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 59ms (Views: 56.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-01-25 01:25:04 +0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (7.7ms)
+  Rendered users/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 129ms (Views: 126.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-01-25 01:25:09 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O72nXHqApCuEFmXZUHgYlVRHU0kVf/QOHzJep0ai/f5BGNJkU7asp7vJFJZnJdu8kHreNvf7QXpxzy4bA2Ttrw==", "user"=>{"username"=>"Q", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "Q"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "Q"], ["password_digest", "$2a$10$OoFDq1dE1Ter8KIH2nrWzuQPdtCA/8jip6O9EaY5i7QVPp.ZoEMV2"], ["created_at", "2019-01-24 17:25:09.221900"], ["updated_at", "2019-01-24 17:25:09.221900"]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30
+Redirected to http://0.0.0.0:3000/users/6
+Completed 302 Found in 174ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-01-25 01:25:09 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-01-25 01:25:10 +0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 67ms (Views: 64.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-01-25 01:25:14 +0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 59ms (Views: 56.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-01-25 01:25:18 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aZks34AZW08Zm0lC7viut/520pniBoYYf0U7Li9UWifYSnzLIHfKZJk4O2B9dmp/C/C/XTDBtVReo5jpGn33wQ==", "username"=>"W", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "W"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://0.0.0.0:3000/tasks
+Completed 302 Found in 163ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:25:18 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 01:25:25 +0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:25:27 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 83ms (Views: 79.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:25:28 +0800
+Processing by TasksController#new as HTML
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (0.9ms)
+  Rendered tasks/_form.html.erb (5.5ms)
+  Rendered tasks/new.html.erb within layouts/application (9.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 67ms (Views: 64.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:25:30 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZbyAeW2GXeyphFw/pStS5g+hAhu2H3eBHIVK18kPxxQ9Jgcru520XUJ6jbQjQDI23FjF4VuoH6rLX3SAx6pShw==", "task"=>{"title"=>"W", "details"=>"W"}, "commit"=>"Create Task"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.5ms)
+  Rendered tasks/_form.html.erb (5.1ms)
+  Rendered tasks/new.html.erb within layouts/application (9.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 113ms (Views: 105.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:31:58 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WfrSRqxgaUa3QOsAAm5WnA1BVCyKKy6OIaL9FHdL7xYBYFUUenuA91y+OouEBTZM3riT1mecRqX2eMNDee56hQ==", "task"=>{"title"=>"W", "details"=>"W"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:18
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.0ms)
+  Rendered tasks/_form.html.erb (2.8ms)
+  Rendered tasks/new.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 83ms (Views: 42.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:32:00 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 66ms (Views: 63.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:32:58 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 82ms (Views: 74.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:33:00 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 270ms (ActiveRecord: 1.6ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007ff1b80b30b8>):
+  
+app/controllers/tasks_controller.rb:12:in `new'
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:33:56 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 1.7ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007ff1c200f030>):
+  
+app/controllers/tasks_controller.rb:12:in `new'
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:33:59 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007ff1b823f9e0>):
+  
+app/controllers/tasks_controller.rb:12:in `new'
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:34:09 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 111ms (Views: 106.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:34:11 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 238ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007ff1b807b3c0>):
+  
+app/controllers/tasks_controller.rb:12:in `new'
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:34:49 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 326ms (ActiveRecord: 3.6ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007ff1b0276830>):
+  
+app/controllers/tasks_controller.rb:12:in `new'
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:34:52 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 220ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00005642a0c35ee0>):
+  
+app/controllers/tasks_controller.rb:12:in `new'
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:35:04 +0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/therealravager/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+Completed 200 OK in 349ms (Views: 332.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:35:07 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 234ms (ActiveRecord: 2.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007f22a1fb2b18>):
+  
+app/controllers/tasks_controller.rb:12:in `new'
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:35:44 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 75ms (Views: 69.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:35:46 +0800
+Processing by TasksController#new as HTML
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.1ms)
+  Rendered tasks/_form.html.erb (13.7ms)
+  Rendered tasks/new.html.erb within layouts/application (18.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 118ms (Views: 59.9ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:35:50 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LzLlFrQ7ZaV4SK+nybHc9l7Zzhy0o7lwOZRW61FeUW53qGJEYiCMFJO2fixP2rwmjSAJ5lkU0VvuTmi8X/vE/Q==", "task"=>{"title"=>"fcgg", "details"=>"cggc"}, "commit"=>"Create Task"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (0.9ms)
+  Rendered tasks/_form.html.erb (2.6ms)
+  Rendered tasks/new.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 45ms (Views: 36.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:36:12 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C2hudwbpxHM0VhaOXQQcVIu0K1RKfX592gs//w2ifhtT8ukl0PItwt+oxwXbb3yEWE3srqfKFlYN0QGoAwfriA==", "task"=>{"title"=>"fcgg", "details"=>"cggc"}, "commit"=>"Create Task"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.4ms)
+  Rendered tasks/_form.html.erb (6.1ms)
+  Rendered tasks/new.html.erb within layouts/application (11.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 92ms (Views: 84.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:36:13 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xl92wqFdezscPjmE8b4/mKeyme3Vj+5gHfawPIfZqdmexfGQd0aSivfA6A931V9IdEteFzg4hkvKLI5riXw8Sg==", "task"=>{"title"=>"fcgg", "details"=>"cggc"}, "commit"=>"Create Task"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.5ms)
+  Rendered tasks/_form.html.erb (4.6ms)
+  Rendered tasks/new.html.erb within layouts/application (9.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 82ms (Views: 72.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:36:13 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JREj32NyQPV0Sip+tpLm651MtC9v7MjKIHxZL8n8eQV9i6SNtWmpRJ+0+/Uw+YY7TrVz1YJboOH3pmd4x1nslg==", "task"=>{"title"=>"fcgg", "details"=>"cggc"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.6ms)
+  Rendered tasks/_form.html.erb (5.2ms)
+  Rendered tasks/new.html.erb within layouts/application (10.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 92ms (Views: 84.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:41:03 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3IBxrEgGSoMzhxD/XTKzT9hlJ7PM4TCQekn9h5gIxDGEGvb+nh2jMth5wXTbWdOfC5zgSSFWWLutk8PQlq1Rog==", "task"=>{"title"=>"fcgg", "details"=>"cggc"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (0.8ms)
+  Rendered tasks/_form.html.erb (2.7ms)
+  Rendered tasks/new.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 102ms (Views: 65.0ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:41:04 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wovnYo86UCDlN2YqC+1A9PEH95bBPRgKVKdBm+vfszOaEWAwWSG5kQ7Jt6GNhiAkIv4wbCyKcCGDfX/M5XomoA==", "task"=>{"title"=>"fcgg", "details"=>"cggc"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (3.4ms)
+  Rendered tasks/_form.html.erb (5.4ms)
+  Rendered tasks/new.html.erb within layouts/application (13.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 85ms (Views: 78.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:41:09 +0800
+Processing by TasksController#new as HTML
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.0ms)
+  Rendered tasks/_form.html.erb (6.0ms)
+  Rendered tasks/new.html.erb within layouts/application (11.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 73ms (Views: 69.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 01:41:12 +0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 69ms (Views: 66.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:41:13 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 64ms (Views: 61.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:41:14 +0800
+Processing by TasksController#new as HTML
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (1.4ms)
+  Rendered tasks/_form.html.erb (5.5ms)
+  Rendered tasks/new.html.erb within layouts/application (11.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 86ms (Views: 83.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:41:17 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiSNl+5W/7A+7QUQhi6TwaKhjxVoidNw7yamjz5gdy8avgrFOE0WAdUT1JsARfMRcVhI74U+u1s4/JjYMMXivA==", "task"=>{"title"=>"awdsad", "details"=>"awwad"}, "commit"=>"Create Task"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (2.3ms)
+  Rendered tasks/_form.html.erb (4.8ms)
+  Rendered tasks/new.html.erb within layouts/application (11.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 80ms (Views: 73.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:46:11 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/tasks_controller.rb:11:in `new'
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:46:44 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 35ms (Views: 31.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:46:45 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 135ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007f229c1764f0>):
+  
+app/controllers/tasks_controller.rb:11:in `new'
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:47:21 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:47:23 +0800
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (0.3ms)
+  Rendered tasks/_form.html.erb (1.9ms)
+  Rendered tasks/new.html.erb within layouts/application (3.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 46ms (Views: 29.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:47:26 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uh+Yt5XVZEf+75ueMob+XXpjQym1Pm7ENp6v7ZwtDXIKhR/lQ86N9hURShW07Z6NqZqE01iJBu/hRJG6koiY4Q==", "task"=>{"title"=>"Gsgsr", "details"=>"esfsef"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "details", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Gsgsr"], ["details", "esfsef"], ["created_at", "2019-01-24 17:47:26.641579"], ["updated_at", "2019-01-24 17:47:26.641579"], ["user_id", 5]]
+  ↳ app/controllers/tasks_controller.rb:17
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:17
+Redirected to http://0.0.0.0:3000/tasks
+Completed 302 Found in 11ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:47:26 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:4
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:48:31 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007f22940a0c18>):
+  
+app/controllers/tasks_controller.rb:11:in `new'
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:48:45 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (9.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+Completed 200 OK in 42ms (Views: 38.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:48:46 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007f22a0d7d998>):
+  
+app/controllers/tasks_controller.rb:11:in `new'
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:49:21 +0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/therealravager/.rvm/gems/ruby-2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (7.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+Completed 200 OK in 224ms (Views: 213.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:49:23 +0800
+Processing by TasksController#new as HTML
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<TasksController:0x00007f8a340c2018>):
+  
+app/controllers/tasks_controller.rb:11:in `new'
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:51:48 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (15.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+Completed 200 OK in 86ms (Views: 77.8ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2019-01-25 01:51:50 +0800
+Processing by TasksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_error_list.html.erb (0.3ms)
+  Rendered tasks/_form.html.erb (5.3ms)
+  Rendered tasks/new.html.erb within layouts/application (7.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+Completed 200 OK in 43ms (Views: 35.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2019-01-25 01:52:20 +0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"15I6NEjmW8VOSpr6Oq3kqU5NrAr1xk784zE3GfxKhoyPCL1mnv2ydKW0S3G8xoR5nbRr8BhxJtc06wlO8u8THw==", "task"=>{"title"=>"AEGaaeg", "details"=>"awdawfa"}, "commit"=>"Create Task"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:18
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "details", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "AEGaaeg"], ["details", "awdawfa"], ["created_at", "2019-01-24 17:52:20.346090"], ["updated_at", "2019-01-24 17:52:20.346090"], ["user_id", 5]]
+  ↳ app/controllers/tasks_controller.rb:18
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:18
+Redirected to http://0.0.0.0:3000/tasks
+Completed 302 Found in 10ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:52:20 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/tasks_helper.rb:4
+Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2019-01-25 01:52:22 +0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-25 01:52:22 +0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2019-01-25 01:52:23 +0800
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:9
+  Rendered tasks/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-01-25 01:52:26 +0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-01-25 01:52:29 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YQ188WzdPtQ/PY9sPLdoIFOn4qFPGBQRQx47lLXF7MPQ3izlzLOv/7+e/U6vOazopiGPZZ3fJ11i+JhTgOxBJQ==", "username"=>"awfawfwa", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "awfawfwa"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.3ms)
+
+
