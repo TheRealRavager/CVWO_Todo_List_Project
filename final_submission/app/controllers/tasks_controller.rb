@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 	include TasksHelper
 	def index
-		@tasks = Task.all #returns an active record relation
+		@tasks = current_user.tasks.all #returns an active record relation
 	end
 
 	def show
