@@ -7,6 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 		
+		<p id='notice'><%= notice %></p>
+		<p id='alert'><%= alert %></p>
+		
 		<% if current_user %>
 			Logged in as: <%= current_user.username %>
 			<%= link_to 'Log Out', :logout %>

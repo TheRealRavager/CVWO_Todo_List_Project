@@ -1,5 +1,6 @@
 <%# standard form for create and update %>
 <%= form_for @task do |f| %>
+	<%= render 'error_list', object: @task %>
 	<%= f.label "Task" %><br>
 	<%= f.text_field :title %><br>
 
