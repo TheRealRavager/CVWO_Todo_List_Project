@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :check_admin, except: [:new, :create] #need to add a way for users to edit only their own details
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
+	def edit
   end
 
   # POST /users
@@ -28,8 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -39,16 +39,16 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+	def update
+		respond_to do |format|
+			if @user.update(user_params)
+				format.html { redirect_to root_path, notice: 'User was successfully updated.' }
+				format.json { render :show, status: :ok, location: @user }
+			else
+				format.html { render :edit }
+				format.json { render json: @user.errors, status: :unprocessable_entity }
+			end
+		end
   end
 
   # DELETE /users/1
@@ -70,5 +70,19 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:username, :password, :password_confirmation)
-    end
+		end
+		
+
+		def check_user
+			if current_user != @user
+				redirect_to root_path, alert: 'You do not have permission to access that page.'
+			end
+		end
+		
+		# Only Admins can enter the user page
+		def check_admin
+			unless current_user.username == 'Admin'
+				redirect_to root_path, alert: 'You do not have permission to access that page.'
+			end
+		end
 end
