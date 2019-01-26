@@ -78,10 +78,4 @@ class UsersController < ApplicationController
 				redirect_to root_path, alert: 'You do not have permission to access that page.'
 			end
 		end
-
-		def boot_non_admins
-			unless check_admin
-				redirect_to root_path, alert: 'You do not have permission to access that page.'
-			end
-		end
 end

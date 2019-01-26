@@ -5,12 +5,12 @@
 	<%= render 'error_list', object: @task %>
 
 	<%# NOT FULLY IMPLEMENTED if user is an Admin, allow him to create tasks for other users%>
-	<% if check_admin %>
+	<%# if check_admin %>
 		<p>
-		<%= f.label 'Task Handler' %>
-		<%= text_field :user %><br>
+		<%#= f.label 'Task Handler' %>
+		<%#= text_field :user %><br>
 		</p>
-	<% end %>
+	<%# end %>
 
 	<p>
 	<%= f.label 'Task' %>
@@ -34,12 +34,16 @@
 
 	<%# if on 'edit' page, include a completed? checkbox %>
 	<% if request.path.include?('edit') %>
-		<p>
 		<%= f.label "Completed?" %>
-		<%= f.check_box :completed %><br><%# FIGURE OUT HOW TO PASS completion_date = date.now %>
-		</p>
+		<%= f.check_box :completed %><%# FIGURE OUT HOW TO PASS completion_date = date.now %>
 	<% end %>
-	<%= f.submit %>
-	<%# need to find way to clean up below code%>
+
+	<%# If task is completed, admin can approve it %>
+	<% if check_admin && @task.completed %>
+		<%= f.label "Approve?" %>
+		<%= f.check_box :approved %>
+	<% end %>
+
+	<br><%= f.submit %>
 	<%= button_tag t('buttons.cancel'), type: "submit", name: "cancel", value: true %>
 <% end %>

@@ -2,7 +2,12 @@
 <p><h1><font size = '+3'><%= @task.title %></h1></font></p>
 <p><em><font size = '+2'><%= @task.details %></font></em></p>
 <p><font size = '+1'><%= 'Tags: ' + @task.tags.to_s %></font></p>
-<font size = '+1'><%= 'Deadline: ' + @task.deadline.strftime('%d %b %y') %></font>
+
+<% if @task.completed %>
+	<font size = '+1'><%= 'Completed On: ' + @task.completion_date.strftime('%d %b %y') %></font>
+	<% else %>
+	<font size = '+1'><%= 'Deadline: ' + @task.deadline.strftime('%d %b %y') %></font>
+<% end %>
 
 <p><%= link_to 'Edit Task', edit_task_path(@task) %></p>
 <%= link_to 'Delete Task', task_path(@task),

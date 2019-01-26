@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_164718) do
+ActiveRecord::Schema.define(version: 2019_01_26_181932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_01_26_164718) do
     t.date "deadline"
     t.date "completion_date"
     t.string "tags"
+    t.boolean "approved"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

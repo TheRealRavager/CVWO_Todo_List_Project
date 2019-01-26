@@ -34,12 +34,14 @@ class TasksController < ApplicationController
 	end
 
 	def update
-		if params[:cancel] || @task.update(task_params)
-			# If task is completed and has no completion date, set today as completion date
-			if @task.completed && (@task.completion_date == nil)
-				@task.update(completion_date: Date.today)
-			else
+		if params[:cancel]
+			redirect_to tasks_path
+		elsif @task.update(task_params)
+			# If task is not completed, destroy its completion date.
+			if !@task.completed
 				@task.update(completion_date: nil)
+			else
+				@task.update(completion_date: Date.today)
 			end
 			redirect_to tasks_path
 		else
@@ -62,7 +64,7 @@ class TasksController < ApplicationController
 	end
 	
 	def task_params
-		params.require(:task).permit(:title, :details, :completed, :deadline, :cancel, :tags, :completion_date)
+		params.require(:task).permit(:title, :details, :completed, :deadline, :cancel, :tags, :completion_date, :approved)
 	end
 
 	def confirm_login

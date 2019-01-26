@@ -3,16 +3,18 @@
 <h1>Here are all your tasks!</h1>
 <ul>
 <h3>
-	<%# Displays every single task title%>
+	<%# Displays every single task title (but only admins can see approved tasks %>
 	<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
-		<li><p> 
-			<p><h2><%= link_to task.title, task_path(task) %></h2></p>
-			<% if task.completed %>
-				<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
-			<% else %>
-				<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
-			<% end %>
-		</li></p>
+		<% if task.approved == nil || !task.approved || check_admin %><%# == nil check is there as approved was not initialised with default false %>
+			<li><p> 
+				<p><h2><%= link_to task.title, task_path(task) %></h2></p>
+				<% if task.completed %>
+					<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
+				<% else %>
+					<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
+				<% end %>
+			</li></p>
+		<% end %>
 	<% end %>
 </ul>
 </h3>
