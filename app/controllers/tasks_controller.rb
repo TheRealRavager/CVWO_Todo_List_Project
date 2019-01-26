@@ -45,7 +45,11 @@ class TasksController < ApplicationController
 		redirect_to tasks_path
 	end
 
-	private #prevents params other than those listed in permit from being passed (security issue)
+	# Sorts tasks according to what user specifies in drop down box.
+	def sort
+	end
+
+	private # Prevents params other than those listed in permit from being passed (security issue)
 	def load_task
 		@task = Task.find(params[:id])
 	end
@@ -60,7 +64,7 @@ class TasksController < ApplicationController
 		end
 	end
 
-	# users can only see their own tasks. Admins can see all tasks.
+	# Users can only see their own tasks. Admins can see all tasks.
 	def confirm_owner
 		unless check_admin
 			if @task && current_user != @task.user

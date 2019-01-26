@@ -4,12 +4,13 @@
 <h1>Here are all your tasks!</h1>
 
 <ul> <%# Displays every single task title%>
-	<% @tasks.each do |task| %>
-		<li> 
+	
+	<% @tasks.sort.each do |task| %>
+		<li><p> 
 			<p><strong><%= link_to task.title, task_path(task) %></strong></p>
-			<p><%= 'Deadline: ' + task.deadline.to_s %></p>
-			<p><%= 'Completed: ' + task.completed.to_s %></p>
-		</li>
+			<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
+			<p><%= 'Completed: ' + (task.completed ? 'Yes' : 'No') %></p>
+		</li></p>
 	<% end %>
 </ul>
 
