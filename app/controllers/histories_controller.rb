@@ -1,28 +1,19 @@
 class HistoriesController < ApplicationController
   before_action :set_history, only: [:show, :edit, :update, :destroy]
 
-  # GET /histories
-  # GET /histories.json
   def index
     @histories = History.all
   end
 
-  # GET /histories/1
-  # GET /histories/1.json
   def show
   end
 
-  # GET /histories/new
   def new
     @history = History.new
   end
 
-  # GET /histories/1/edit
   def edit
-  end
 
-  # POST /histories
-  # POST /histories.json
   def create
     @history = History.new(history_params)
 
