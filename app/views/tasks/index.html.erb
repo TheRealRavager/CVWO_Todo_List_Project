@@ -1,7 +1,6 @@
 <%# returns authentication tokens for Delete Task%>
 <%= csrf_meta_tags %>
-
-<h1>Here are all your tasks!</h1><br>
+<h1>Here are all your tasks!</h1>
 <ul>
 <h3>
 	<%# Displays every single task title%>
@@ -17,6 +16,7 @@
 	<% end %>
 </ul>
 </h3>
+<br>
 
 <h2><%= link_to 'Create Task:', tasks_new_path %><h2><br>
 

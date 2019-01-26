@@ -1,8 +1,10 @@
 <%= csrf_meta_tags %>
-<%# NEED TO ADD MORE DETAILS!!!!!!!!%>
-<p><strong><%= @task.title %></strong></p>
-<p><em><%= @task.details %></em></p>
-<%= link_to 'Edit Task', edit_task_path(@task) %><br>
+<p><h1><font size = '+3'><%= @task.title %></h1></font></p>
+<p><em><font size = '+2'><%= @task.details %></font></em></p>
+<p><font size = '+1'><%= 'Tags: ' + @task.tags.to_s %></font></p>
+<font size = '+1'><%= 'Deadline: ' + @task.deadline.strftime('%d %b %y') %></font>
+
+<p><%= link_to 'Edit Task', edit_task_path(@task) %></p>
 <%= link_to 'Delete Task', task_path(@task),
 	data: { confirm: 'Confirm Deletion?' }, method: :delete %><br>
 <br>
