@@ -35,8 +35,11 @@ class TasksController < ApplicationController
 
 	def update
 		if params[:cancel] || @task.update(task_params)
+			# If task is completed and has no completion date, set today as completion date
 			if @task.completed && (@task.completion_date == nil)
 				@task.update(completion_date: Date.today)
+			else
+				@task.update(completion_date: nil)
 			end
 			redirect_to tasks_path
 		else

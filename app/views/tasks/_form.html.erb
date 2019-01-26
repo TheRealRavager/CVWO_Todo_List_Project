@@ -14,16 +14,21 @@
 
 	<p>
 	<%= f.label 'Task' %>
-	<%= f.text_field :title %><br>
+	<%= f.text_field :title, placeholder: 'Insert name of task' %><br>
 	</p>
 
 	<p>
 	<%= f.label 'Description' %>
-	<%= f.text_area :details %><br>
+	<%= f.text_area :details, placeholder: 'Describe the nature of what is to be done' %><br>
 	</p>
 
 	<p>
-	<%= f.label 'Deadline'%>
+	<%= f.label 'Tags' %>
+	<%= f.text_area :tags, placeholder: 'Insert tags, with a space in between each word' %><br>
+	</p>	
+
+	<p>
+	<%= f.label 'Deadline' %>
 	<%= f.date_select :deadline, order:[:day, :month, :year], start_year: Date.today.year %><br>
 	</p>
 
