@@ -1,6 +1,10 @@
 <%# This is the ./welcome/index page. It has been made into the main page by setting 'root' in routes.rb%>
 
-<h1>Welcome to my CVWO Assignment!</h1>
-<p>To-do: Create a to-do list!</p>
+<h1>Welcome to my CVWO Assignment!</h1><br>
+<h3>To begin, please sign up and log in!</h3>
+<h3>To test admin functions, log in with:<br>
+Username: Admin<br>
+Password: password
+</h3><br>
 
-<%= link_to "View your current tasks here: ", tasks_path %>
+<font size = '+2'><%= link_to "Click me to view your current tasks!", tasks_path %></font>

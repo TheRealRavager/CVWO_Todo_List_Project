@@ -5,6 +5,10 @@ module ApplicationHelper #makes method available everyhwhere in application
 	end
 
 	def check_admin
-		current_user.username == 'Admin'
+		current_user.username == 'Admin' if session[:user_id]
+	end
+
+	def boot_non_admins
+	 redirect_to root_path unless check_admin
 	end
 end
