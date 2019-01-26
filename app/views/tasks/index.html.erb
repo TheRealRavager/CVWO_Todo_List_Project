@@ -5,7 +5,7 @@
 
 <ul> <%# Displays every single task title%>
 	
-	<% @tasks.sort.each do |task| %>
+	<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
 		<li><p> 
 			<p><strong><%= link_to task.title, task_path(task) %></strong></p>
 			<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
