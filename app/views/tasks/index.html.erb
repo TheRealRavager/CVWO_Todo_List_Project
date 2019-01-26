@@ -8,8 +8,11 @@
 	<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
 		<li><p> 
 			<p><strong><%= link_to task.title, task_path(task) %></strong></p>
-			<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
-			<p><%= 'Completed: ' + (task.completed ? 'Yes' : 'No') %></p>
+			<% if task.completed %>
+				<p><%= 'Completed: ' + (task.completed ? 'Yes' : 'No') %></p>
+			<% else %>
+				<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
+			<% end %>
 		</li></p>
 	<% end %>
 </ul>
