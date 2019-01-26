@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :boot_non_admins, except: [:new, :create] #need to add a way for users to edit only their own details
+	before_action :boot_non_admins, except: [:new, :create, :edit, :update] #need to add a way for users to edit only their own details
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
 	def edit
+		check_user unless check_admin
   end
 
   # POST /users
@@ -69,7 +70,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation)
+      params.require(:user).permit(:username, :password, :password_confirmation, :role)
 		end
 		
 

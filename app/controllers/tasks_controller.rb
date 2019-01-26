@@ -76,7 +76,7 @@ class TasksController < ApplicationController
 	# Users can only see their own tasks. Admins can see all tasks.
 	def confirm_owner
 		unless check_admin
-			if @task && current_user != @task.user
+			if current_user != @task.user
 				redirect_to tasks_path, alert: 'You do not have permission to access that task.'
 			end
 		end

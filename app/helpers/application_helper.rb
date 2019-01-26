@@ -9,6 +9,6 @@ module ApplicationHelper #makes method available everyhwhere in application
 	end
 
 	def boot_non_admins
-	 redirect_to root_path unless check_admin
+	 redirect_to root_path, alert: 'You are not authrorized to access that page' unless check_admin
 	end
 end

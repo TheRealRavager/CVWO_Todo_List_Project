@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.sort_by{ |user| [user.username, user.role] }.each do |user| %>
       <tr>
         <td><%= user.username %></td>
 				<td><%= user.role == nil ? 'unassigned' : user.role %></td>
