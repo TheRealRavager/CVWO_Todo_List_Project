@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :check_admin, except: [:new, :create] #need to add a way for users to edit only their own details
+	before_action :boot_non_admins, except: [:new, :create] #need to add a way for users to edit only their own details
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -78,10 +78,9 @@ class UsersController < ApplicationController
 				redirect_to root_path, alert: 'You do not have permission to access that page.'
 			end
 		end
-		
-		# Only Admins can enter the user page
-		def check_admin
-			unless current_user.username == 'Admin'
+
+		def boot_non_admins
+			unless check_admin
 				redirect_to root_path, alert: 'You do not have permission to access that page.'
 			end
 		end

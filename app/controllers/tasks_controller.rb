@@ -5,7 +5,11 @@ class TasksController < ApplicationController
 	before_action :load_task, :confirm_owner, except: [:index, :new, :create]
 
 	def index
-		@tasks = current_user.tasks.all #returns an active record relation
+		if check_admin
+			@tasks = Task.all
+		else
+			@tasks = current_user.tasks.all #returns an active record relation
+		end
 	end
 
 	def show
@@ -56,9 +60,12 @@ class TasksController < ApplicationController
 		end
 	end
 
+	# users can only see their own tasks. Admins can see all tasks.
 	def confirm_owner
-		if @task && current_user != @task.user
-			redirect_to tasks_path, alert: 'You do not have permission to access that task.'
+		unless check_admin
+			if @task && current_user != @task.user
+				redirect_to tasks_path, alert: 'You do not have permission to access that task.'
+			end
 		end
 	end
 end
