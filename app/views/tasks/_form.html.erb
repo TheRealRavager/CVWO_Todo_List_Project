@@ -1,15 +1,31 @@
 <%# standard form for create and update %>
+
 <%= form_for @task do |f| %>
+	<%# if any error encountered, display error list%>
 	<%= render 'error_list', object: @task %>
-	<%= f.label "Task" %><br>
+	<p>
+	<%= f.label 'Task' %>
 	<%= f.text_field :title %><br>
+	</p>
 
-	<%= f.label "Description" %><br>
+	<p>
+	<%= f.label 'Description' %>
 	<%= f.text_area :details %><br>
+	</p>
 
+	<p>
+	<%= f.label 'Deadline'%>
+	<%= f.date_select :deadline, order:[:day, :month, :year], start_year: Date.today.year %><br>
+	</p>
+
+	<%# if on 'edit' page, include a completed? checkbox %>
 	<% if request.path.include?('edit') %>
+		<p>
 		<%= f.label "Completed?" %>
 		<%= f.check_box :completed %><br>
+		</p>
 	<% end %>
-	<%= f. submit %>
+	<%= f.submit %>
+	<%# need to find way to clean up below code%>
+	<%= button_tag t('buttons.cancel'), type: "submit", name: "cancel", value: true %>
 <% end %>

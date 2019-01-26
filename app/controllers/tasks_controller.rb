@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
 	include TasksHelper
+	#before any method calls, confirm user is logged in and the user is the correct user (except for main tasks page and creation of new task)
 	before_action :confirm_login
 	before_action :load_task, :confirm_owner, except: [:index, :new, :create]
 
@@ -17,18 +18,18 @@ class TasksController < ApplicationController
 	#is called when submit is pressed on form. When submit is pressed, it outputs a hash of parameters included in the form.
 	def create
 		@task = current_user.tasks.build(task_params)
-		if @task.save
+		if params[:cancel] || @task.save #short circuit, if either cancel or save.
 			redirect_to tasks_path #redirects user to main task page (tasks#index)
 		else
 			render 'new'
 		end
 	end
 
-	def edit #find the specific task with that id
+	def edit
 	end
 
 	def update
-		if @task.update(task_params)
+		if params[:cancel] || @task.update(task_params)
 			redirect_to tasks_path
 		else
 			render 'edit'
@@ -46,7 +47,7 @@ class TasksController < ApplicationController
 	end
 	
 	def task_params
-		params.require(:task).permit(:title, :details, :completed)
+		params.require(:task).permit(:title, :details, :completed, :deadline, :cancel)
 	end
 
 	def confirm_login

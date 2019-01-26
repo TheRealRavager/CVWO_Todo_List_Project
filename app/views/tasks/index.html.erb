@@ -2,15 +2,15 @@
 <%= csrf_meta_tags %>
 
 <h1>Here are all your tasks!</h1>
-<p>This is where all the tasks should go eventually</p>
 
 <ul> <%# Displays every single task title%>
 	<% @tasks.each do |task| %>
 		<li> 
 			<p><strong><%= link_to task.title, task_path(task) %></strong></p>
-			<p><%= "Completed: " + task.completed.to_s %></p>
+			<p><%= 'Deadline: ' + task.deadline.to_s %></p>
+			<p><%= 'Completed: ' + task.completed.to_s %></p>
 		</li>
 	<% end %>
 </ul>
 
-<%= link_to "Create Task:", tasks_new_path %>
+<%= link_to 'Create Task:', tasks_new_path %>
