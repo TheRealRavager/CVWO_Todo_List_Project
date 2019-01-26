@@ -1,14 +1,15 @@
 class TasksController < ApplicationController
-	include TasksHelper
 	#before any method calls, confirm user is logged in and the user is the correct user (except for main tasks page and creation of new task)
 	before_action :confirm_login
 	before_action :load_task, :confirm_owner, except: [:index, :new, :create]
 
 	def index
 		if check_admin
-			@tasks = Task.all
+			@search = Task.search(params[:q])
+			@tasks = @search.result(distinct: true)
 		else
-			@tasks = current_user.tasks.all #returns an active record relation
+			@search = current_user.tasks.search(params[:q])
+			@tasks = @search.result(distinct: true)
 		end
 	end
 

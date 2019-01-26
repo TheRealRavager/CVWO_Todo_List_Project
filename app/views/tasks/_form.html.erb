@@ -3,6 +3,15 @@
 <%= form_for @task do |f| %>
 	<%# if any error encountered, display error list%>
 	<%= render 'error_list', object: @task %>
+
+	<%# NOT FULLY IMPLEMENTED if user is an Admin, allow him to create tasks for other users%>
+	<% if check_admin %>
+		<p>
+		<%= f.label 'Task Handler' %>
+		<%= text_field :user %><br>
+		</p>
+	<% end %>
+
 	<p>
 	<%= f.label 'Task' %>
 	<%= f.text_field :title %><br>
@@ -22,7 +31,7 @@
 	<% if request.path.include?('edit') %>
 		<p>
 		<%= f.label "Completed?" %>
-		<%= f.check_box :completed %><br>
+		<%= f.check_box :completed %><br><%# FIGURE OUT HOW TO PASS completion_date = date.now %>
 		</p>
 	<% end %>
 	<%= f.submit %>

@@ -1,10 +1,40 @@
 <%# returns authentication tokens for Delete Task%>
 <%= csrf_meta_tags %>
 
-<h1>Here are all your tasks!</h1>
+<h1>Here are all your tasks!</h1><br>
 
-<ul> <%# Displays every single task title%>
-	
+<%# Text field searching for tasks whos title contains ... %>
+
+<h2><%= 'Search for tasks' %></h2>
+<%= search_form_for @search do |f| %>
+	<p>
+	<%= f.label :title_cont, 'Task name contains: ' %>
+  <%= f.text_field :title_cont %>
+	</p>
+	<p>
+	<%= f.label 'Task Tags' %><br>
+	<%# For every 'f', create a checkbox %>
+	<%= f.collection_check_boxes :id_in, current_user.tasks.all, :id, :title do |b| %>
+    <%= b.check_box %>
+    <%= b.label %>
+	<% end %>
+	<p>
+	<%= f.submit "Search" %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+<ul> 
+	<%# Displays every single task title%>
 	<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
 		<li><p> 
 			<p><strong><%= link_to task.title, task_path(task) %></strong></p>
