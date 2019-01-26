@@ -39,7 +39,7 @@
 		<li><p> 
 			<p><strong><%= link_to task.title, task_path(task) %></strong></p>
 			<% if task.completed %>
-				<p><%= 'Completed: ' + (task.completed ? 'Yes' : 'No') %></p>
+				<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
 			<% else %>
 				<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
 			<% end %>

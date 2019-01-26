@@ -35,6 +35,9 @@ class TasksController < ApplicationController
 
 	def update
 		if params[:cancel] || @task.update(task_params)
+			if @task.completed && (@task.completion_date == nil)
+				@task.update(completion_date: Date.today)
+			end
 			redirect_to tasks_path
 		else
 			render 'edit'
@@ -56,7 +59,7 @@ class TasksController < ApplicationController
 	end
 	
 	def task_params
-		params.require(:task).permit(:title, :details, :completed, :deadline, :cancel)
+		params.require(:task).permit(:title, :details, :completed, :deadline, :cancel, :tags, :completion_date)
 	end
 
 	def confirm_login
