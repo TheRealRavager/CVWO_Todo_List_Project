@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :histories
   get 'welcome/index'
 	root 'welcome#index' #root sets the 'main' webpage as /welcome/index. index is a method thats why its welcome#index
 	get 'tasks/index'
