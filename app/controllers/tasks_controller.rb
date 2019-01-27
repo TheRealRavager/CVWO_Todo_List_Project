@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	#before any method calls, confirm user is logged in and the user is the correct user (except for main tasks page and creation of new task)
+	# Before any method calls, confirm user is logged in and the user is the correct user (except for main tasks page and creation of new task)
 	before_action :confirm_login
 	before_action :load_task, :confirm_owner, except: [:index, :new, :create]
 
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 		@task = current_user.tasks.build 
 	end
 	
-	#is called when submit is pressed on form. When submit is pressed, it outputs a hash of parameters included in the form.
+	# Is called when submit is pressed on form. When submit is pressed, it outputs a hash of parameters included in the form.
 	def create
 		@task = current_user.tasks.build(task_params)
 		if params[:cancel] || @task.save #short circuit, if either cancel or save.
@@ -54,7 +54,7 @@ class TasksController < ApplicationController
 		redirect_to tasks_path
 	end
 
-	# Sorts tasks according to what user specifies in drop down box.
+	# Sorts tasks according to what user specifies in drop down box NOT IMPLEMENTED.
 	def sort
 	end
 
