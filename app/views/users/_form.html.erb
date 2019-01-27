@@ -1,30 +1,40 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <%= render 'error_list', object: user %>
+<%# Main page for creating / editing users %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-left">
 
-	<%# Only admins can create / edit roles%>
-	<% if check_admin %>
-	<div class="field">
-    <%= form.label :role %>
-    <%= form.text_field :role %>
-  </div>
-	<% end %>
+			<%= form_with(model: user, local: true) do |form| %>
+			<%= render 'error_list', object: user %>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+			<div class="field">
+				<%= form.label :username %><br>
+				<%= form.text_field :username %>
+			</div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
+			<%# Only admins can create / edit roles%>
+			<% if check_admin %>
+			<div class="field">
+				<%= form.label :role %><br>
+				<%= form.text_field :role %>
+			</div>
+			<% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+			<div class="field">
+				<%= form.label :password %><br>
+				<%= form.password_field :password %>
+			</div>
+
+			<div class="field">
+				<%= form.label :password_confirmation %><br>
+				<%= form.password_field :password_confirmation %>
+			</div>
+
+			<div class="actions">
+				<%= form.submit %>
+				<%= form.submit name: "cancel", value: "Cancel" %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</div>

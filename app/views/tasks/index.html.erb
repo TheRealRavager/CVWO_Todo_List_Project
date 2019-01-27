@@ -1,8 +1,6 @@
 <%# Main view page for all tasks %>
+
 <%= csrf_meta_tags %>
-
-
-
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 text-left">
@@ -24,21 +22,19 @@
 				<% end %></p><br>
 			<p class="lead"><%= link_to 'Create Task:', tasks_new_path %></p>
 
-			<p class="lead">
 			<%# Text field searching for tasks whos title or tags contains ... %>
 			<h2><%= 'Search for tasks' %></h2>
 			<%= search_form_for @search do |f| %>
-				<p>
+				<p class="lead">
 				<%= f.label :title_cont, 'Task name contains: ' %><br>
 				<%= f.text_field :title_cont %>
 				</p>
-				<p>
+				<p class="lead">
 				<%= f.label 'Task Tags:' %><br>
 				<%= f.text_field :tags_cont %>
 				</p>
 				<%= f.submit 'Search' %>
 			<% end %>
-			</p>
 		</div>
 	</div>
 </div>

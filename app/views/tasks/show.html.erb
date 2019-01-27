@@ -1,29 +1,21 @@
 <%= csrf_meta_tags %>
-<p><h1><font size = '+3'><%= @task.title %></h1></font></p>
-<p><em><font size = '+2'><%= @task.details %></font></em></p>
-<p><font size = '+1'><%= 'Tags: ' + @task.tags.to_s %></font></p>
-
-<% if @task.completed %>
-	<font size = '+1'><%= 'Completed On: ' + @task.completion_date.strftime('%d %b %y') %></font>
-	<% else %>
-	<font size = '+1'><%= 'Deadline: ' + @task.deadline.strftime('%d %b %y') %></font>
-<% end %>
-
-<p><%= link_to 'Edit Task', edit_task_path(@task) %></p>
-<%= link_to 'Delete Task', task_path(@task),
-	data: { confirm: 'Confirm Deletion?' }, method: :delete %><br>
-<br>
-<%= link_to 'Return to list of tasks', tasks_path %>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-left">
-          <h1 class="mt-5"><%= @task.title %></h1>
-          <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-          <ul class="list-unstyled">
-            <li>Bootstrap 4.1.3</li>
-            <li>jQuery 3.3.1</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+	<%# Main page for inspecting tasks%>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-left">
+				<h1 class="mt-5"><%= @task.title %></h1>
+				<p class="lead"><em><%= @task.details %></em></p>
+				<p class="lead"><%= 'Tags: ' + @task.tags.to_s %></p>
+				<% if @task.completed %>
+					<p class="lead"><%= 'Completed On: ' + @task.completion_date.strftime('%d %b %y') %></p>
+				<% else %>
+					<p class="lead"><%= 'Deadline: ' + @task.deadline.strftime('%d %b %y') %></p>
+				<% end %>
+				<br>
+				<p class="lead"><%= link_to 'Edit Task', edit_task_path(@task) %></p>
+				<p class="lead"><%= link_to 'Delete Task', task_path(@task),
+					data: { confirm: 'Confirm Deletion?' }, method: :delete %></p>
+				<p class="lead"><%= link_to 'Return to list of tasks', tasks_path %></p>
+			</div>
+		</div>
+	</div>
