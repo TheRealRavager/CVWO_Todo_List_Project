@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 text-left">
-			<h1 class="mt-5">Here are all your tasks!</h1>
+			<h1 class="mt-5"><%= check_admin ? "Here is everybody's tasks!" : "Here are all your tasks!" %></h1>
 			<p class="lead">
 				<%# Displays every single task title (but only admins can see approved tasks %>
 				<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
@@ -13,7 +13,7 @@
 							<p><h2><%= link_to task.title, task_path(task) %></h2></p>
 							<% if task.completed %>
 								<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
-								<%= 'APPROVED' unless !task.approved %>
+								<%= (task.completed && !task.approved) ? 'PENDING APPROVAL' : (task.approved ? 'APPROVED' : '') %>
 							<% else %>
 								<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
 							<% end %>
