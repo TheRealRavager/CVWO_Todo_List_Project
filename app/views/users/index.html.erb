@@ -11,13 +11,14 @@
 							<tr>
 								<th class="lead">Username</th>
 								<th class="lead">Role</th>
-								<th colspan="3"></th>
+								<th colspan="5"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<% @users.sort_by{ |user| [user.username, user.role] }.each do |user| %>
 								<tr>
 									<td class="lead"><%= user.username %></td>
+									<%# nil check in place to prevent error if user.role is somehow not assigned %>
 									<td class="lead"><%= user.role == nil ? 'unassigned' : user.role %></td>
 									<td class="lead"><%= link_to 'Show', user %></td>
 									<td class="lead"><%= link_to 'Edit', edit_user_path(user) %></td>

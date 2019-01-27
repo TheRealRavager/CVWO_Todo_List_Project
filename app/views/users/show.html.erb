@@ -1,33 +1,35 @@
 <%# Displays user's details and task history %>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 text-left">
 			<h1 class="mt-5">User Details</h1>
 			<p class="lead">Username: <%= @user.username %></p>
 			<p class="lead">Role: <%= @user.role %></p>
+			<p class="lead"><%= link_to 'Edit', edit_user_path(@user) %> |
+			<%= link_to 'Back', users_path %></p>
 			<ul class="list-unstyled">
 				<p class="lead">
 					<%# Displays every single task title (but only admins can see approved tasks %>
+					<h2 class="mt-5"><%= @user.username.to_s + '\'s Tasks'%></h2>
 					<% @tasks = @user.tasks%>
-					<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
-						<% if !task.approved || check_admin %>
-							<li><p> 
-								<p><h2><%= link_to task.title, task_path(task) %></h2></p>
-								<% if task.completed %>
-									<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
-									<%= 'APPROVED' unless !task.approved %>
-								<% else %>
-									<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
-								<% end %>
-							</li></p>
+					<% if @tasks.length == 0 %>
+						<p class="lead"><em><%= @user.username.to_s + ' has no tasks! Maybe you should give them some!'%></em></p>
+					<% else %>
+						<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
+							<% if !task.approved || check_admin %>
+								<li><p> 
+									<p><h2><%= link_to task.title, task_path(task) %></h2></p>
+									<% if task.completed %>
+										<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
+										<%= 'APPROVED' unless !task.approved %>
+									<% else %>
+										<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
+									<% end %>
+								</li></p>
+							<% end %>
 						<% end %>
 					<% end %></p><br>
-
 				<%# Text field searching for tasks whos title or tags contains ... %>
 				<h2><%= 'Search for tasks' %></h2>
 				<% @search = @user.tasks.search(params[:q]) %>

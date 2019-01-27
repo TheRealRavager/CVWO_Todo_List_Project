@@ -52,7 +52,11 @@ class UsersController < ApplicationController
 		else
 			respond_to do |format|
 				if @user.update(user_params)
-					format.html { redirect_to root_path, notice: 'User was successfully updated.' }
+					if check_admin
+						format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+					else
+						format.html { redirect_to root_path, notice: 'User was successfully updated.' }
+					end
 					format.json { render :show, status: :ok, location: @user }
 				else
 					format.html { render :edit }

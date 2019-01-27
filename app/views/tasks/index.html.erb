@@ -8,17 +8,17 @@
 			<p class="lead">
 				<%# Displays every single task title (but only admins can see approved tasks %>
 				<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
-					<% if !task.approved || check_admin %>
-						<li><p> 
-							<p><h2><%= link_to task.title, task_path(task) %></h2></p>
-							<% if task.completed %>
-								<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
-								<%= (task.completed && !task.approved) ? 'PENDING APPROVAL' : (task.approved ? 'APPROVED' : '') %>
-							<% else %>
-								<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
-							<% end %>
-						</li></p>
-					<% end %>
+				<%#= 'This task belongs to ' + task.user.username.to_s %>
+					<li><p> 
+						<p><h2><%= link_to task.title, task_path(task) %></h2></p>
+						<% if task.completed %>
+							<p class="lead"><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
+							<p class="lead"><%= (check_admin && task.approved) ? 'APPROVED' : 'PENDING APPROVAL' %></p>
+						<% else %>
+							<p class="lead"><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
+						<% end %>
+						<p class="lead"><%= 'This task belongs to ' + task.user.username.to_s if check_admin %></p>
+					</li></p>
 				<% end %></p><br>
 			<p class="lead"><%= link_to 'Create Task:', tasks_new_path %></p>
 
