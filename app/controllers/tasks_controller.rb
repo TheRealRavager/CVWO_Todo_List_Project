@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 	def create
 		@task = current_user.tasks.build(task_params)
 		if params[:cancel] || @task.save #short circuit, if either cancel or save.
-			redirect_to tasks_path #redirects user to main task page (tasks#index)
+			redirect_back(fallback_location: tasks_path) #redirects user to main task page (tasks#index)
 		else
 			render 'new'
 		end
@@ -35,7 +35,7 @@ class TasksController < ApplicationController
 
 	def update
 		if params[:cancel]
-			redirect_to tasks_path
+			redirect_back(fallback_location: tasks_path)
 		elsif @task.update(task_params)
 			# If task is not completed, destroy its completion date.
 			if !@task.completed
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
 			else
 				@task.update(completion_date: Date.today)
 			end
-			redirect_to tasks_path
+			redirect_back(fallback_location: tasks_path)
 		else
 			render 'edit'
 		end
@@ -51,7 +51,7 @@ class TasksController < ApplicationController
 
 	def destroy
 		@task.destroy
-		redirect_to tasks_path
+		redirect_back(fallback_location: tasks_path)
 	end
 
 	# Sorts tasks according to what user specifies in drop down box.
