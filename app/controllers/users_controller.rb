@@ -9,11 +9,9 @@ class UsersController < ApplicationController
   def show
   end
 
-
   def new
     @user = User.new
   end
-
 
 	def edit
 		check_user unless check_admin
@@ -22,7 +20,11 @@ class UsersController < ApplicationController
 	def create
 		# If user creation or edit is cancelled, send admins back to users page and non-admins to main page
 		if params[:cancel]
-			check_admin ? redirect_to users_path : redirect_to root_path
+			if check_admin
+				redirect_to users_path
+			else
+				redirect_to root_path
+			end
 		else
 			@user = User.new(user_params)
 			respond_to do |format|
@@ -36,11 +38,13 @@ class UsersController < ApplicationController
 		end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
 	def update
 		if params[:cancel]
-			redirect_to root_path
+			if check_admin
+				redirect_to users_path
+			else
+				redirect_to root_path
+			end
 		else
 			respond_to do |format|
 				if @user.update(user_params)
@@ -54,8 +58,6 @@ class UsersController < ApplicationController
 		end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
 	def destroy
 		if !check_admin
     	@user.destroy
