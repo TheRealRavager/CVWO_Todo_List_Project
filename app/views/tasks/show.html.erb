@@ -12,8 +12,8 @@
 					<p class="lead"><%= 'Deadline: ' + @task.deadline.strftime('%d %b %y') %></p>
 				<% end %>
 				<br>
-				<p class="lead"><%= link_to 'Edit Task', edit_task_path(@task) %></p>
-				<p class="lead"><%= link_to 'Delete Task', task_path(@task),
+				<p class="lead"><%= link_to 'Edit', edit_task_path(@task) %> |
+				<%= link_to 'Delete', task_path(@task),
 					data: { confirm: 'Confirm Deletion?' }, method: :delete %></p>
 				<p class="lead"><%= link_to 'Return to list of tasks', tasks_path %></p>
 			</div>
