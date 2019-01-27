@@ -31,6 +31,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Added ransack for searching and filtering
 gem 'ransack'
 
+# Added bootstrap for CSS & jquery for js
+gem 'bootstrap', '4.2.1'
+gem 'jquery-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

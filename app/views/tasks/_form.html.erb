@@ -1,49 +1,57 @@
 <%# standard form for create and update %>
 
-<%= form_for @task do |f| %>
-	<%# if any error encountered, display error list%>
-	<%= render 'error_list', object: @task %>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-left">
+			<p class="lead">
+			<%= form_for @task do |f| %>
+				<%# if any error encountered, display error list%>
+				<%= render 'error_list', object: @task %>
 
-	<%# NOT FULLY IMPLEMENTED if user is an Admin, allow him to create tasks for other users%>
-	<%# if check_admin %>
-		<p>
-		<%#= f.label 'Task Handler' %>
-		<%#= text_field @user, placeholder: 'Insert name of user handling the task' %><br>
-		</p>
-	<%# end %>
+				<%# NOT FULLY IMPLEMENTED if user is an Admin, allow him to create tasks for other users%>
+				<%# if check_admin %>
+					<p>
+					<%#= f.label 'Task Handler' %>
+					<%#= text_field @user, placeholder: 'Insert name of user handling the task' %><br>
+					</p>
+				<%# end %>
 
-	<p>
-	<%= f.label 'Task' %>
-	<%= f.text_field :title, placeholder: 'Insert name of task' %><br>
-	</p>
+				<p>
+				<%= f.label 'Task' %><br>
+				<%= f.text_field :title, placeholder: 'Insert name of task' %><br>
+				</p>
 
-	<p>
-	<%= f.label 'Description' %>
-	<%= f.text_area :details, placeholder: 'Describe the nature of what is to be done' %><br>
-	</p>
+				<p>
+				<%= f.label 'Description' %><br>
+				<%= f.text_area :details, placeholder: 'Describe the nature of what is to be done' %><br>
+				</p>
 
-	<p>
-	<%= f.label 'Tags' %>
-	<%= f.text_area :tags, placeholder: 'Insert tags, with a space in between each word' %><br>
-	</p>	
+				<p>
+				<%= f.label 'Tags' %><br>
+				<%= f.text_area :tags, placeholder: 'Insert tags, with a space in between each word' %><br>
+				</p>	
 
-	<p>
-	<%= f.label 'Deadline' %>
-	<%= f.date_select :deadline, order:[:day, :month, :year], start_year: Date.today.year %><br>
-	</p>
+				<p>
+				<%= f.label 'Deadline' %><br>
+				<%= f.date_select :deadline, order:[:day, :month, :year], start_year: Date.today.year %><br>
+				</p>
 
-	<%# if on 'edit' page, include a completed? checkbox %>
-	<% if request.path.include?('edit') %>
-		<%= f.label "Completed?" %>
-		<%= f.check_box :completed %><%# FIGURE OUT HOW TO PASS completion_date = date.now %>
-	<% end %>
+				<%# if on 'edit' page, include a completed? checkbox %>
+				<% if request.path.include?('edit') %>
+					<%= f.label "Completed?" %>
+					<%= f.check_box :completed %><%# FIGURE OUT HOW TO PASS completion_date = date.now %>
+				<% end %>
 
-	<%# If task is completed, admin can approve it %>
-	<% if check_admin && @task.completed %>
-		<%= f.label "Approve?" %>
-		<%= f.check_box :approved %>
-	<% end %>
+				<%# If task is completed, admin can approve it %>
+				<% if check_admin && @task.completed %>
+					<%= f.label "Approve?" %>
+					<%= f.check_box :approved %>
+				<% end %>
 
-	<br><%= f.submit %>
-	<%= button_tag t('buttons.cancel'), type: "submit", name: "cancel", value: true %>
-<% end %>
+				<br><%= f.submit %>
+				<%= f.submit name: "cancel", value: "Cancel" %>
+			<% end %>
+			</p>
+		</div>
+	</div>
+</div>

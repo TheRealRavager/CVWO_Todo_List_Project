@@ -1,38 +1,44 @@
 <%# Main view page for all tasks %>
 <%= csrf_meta_tags %>
-<h1>Here are all your tasks!</h1>
-<ul>
-<h3>
-	<%# Displays every single task title (but only admins can see approved tasks %>
-	<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
-		<% if !task.approved || check_admin %>
-			<li><p> 
-				<p><h2><%= link_to task.title, task_path(task) %></h2></p>
-				<% if task.completed %>
-					<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
-					<%= 'APPROVED' unless !task.approved %>
-				<% else %>
-					<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
-				<% end %>
-			</li></p>
-		<% end %>
-	<% end %>
-</ul>
-</h3>
-<br>
 
-<h2><%= link_to 'Create Task:', tasks_new_path %><h2><br>
 
-<%# Text field searching for tasks whos title or tags contains ... %>
-<h2><%= 'Search for tasks' %></h2>
-<%= search_form_for @search do |f| %>
-	<p>
-	<%= f.label :title_cont, 'Task name contains: ' %><br>
-  <%= f.text_field :title_cont %>
-	</p>
-	<p>
-	<%= f.label 'Task Tags' %><br>
-	<%= f.text_field :tags_cont %>
-	</p>
-	<%= f.submit 'Search' %>
-<% end %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-left">
+			<h1 class="mt-5">Here are all your tasks!</h1>
+			<p class="lead">
+				<%# Displays every single task title (but only admins can see approved tasks %>
+				<% @tasks.sort_by{ |task| [task.deadline, task.title] }.each do |task| %>
+					<% if !task.approved || check_admin %>
+						<li><p> 
+							<p><h2><%= link_to task.title, task_path(task) %></h2></p>
+							<% if task.completed %>
+								<p><%= 'Completed on: ' + (task.completion_date.strftime('%d %b %y')) %></p>
+								<%= 'APPROVED' unless !task.approved %>
+							<% else %>
+								<p><%= 'Deadline: ' + task.deadline.strftime('%d %b %y') %></p>
+							<% end %>
+						</li></p>
+					<% end %>
+				<% end %></p><br>
+			<p class="lead"><%= link_to 'Create Task:', tasks_new_path %></p>
+
+			<p class="lead">
+			<%# Text field searching for tasks whos title or tags contains ... %>
+			<h2><%= 'Search for tasks' %></h2>
+			<%= search_form_for @search do |f| %>
+				<p>
+				<%= f.label :title_cont, 'Task name contains: ' %><br>
+				<%= f.text_field :title_cont %>
+				</p>
+				<p>
+				<%= f.label 'Task Tags:' %><br>
+				<%= f.text_field :tags_cont %>
+				</p>
+				<%= f.submit 'Search' %>
+			<% end %>
+			</p>
+		</div>
+	</div>
+</div>
