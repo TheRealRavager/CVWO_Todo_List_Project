@@ -15,6 +15,7 @@ Mary_Sue = User.create(username: 'Mary Sue', role: 'Customer Service', password:
 Tan_Ah_Kow = User.create(username: 'Tan Ah Kow', role: 'Recruiting', password: 'password')
 Kah_Na_Fayed = User.create(username: 'Kah Nah Fayed', role: 'Security Officer', password: 'password')
 
+# Why do these not run???
 # All_Tasks = Task.create(
 # 	[{title: 'Manage People',
 # 	details: 'I am a Manager thats my job',
@@ -106,11 +107,3 @@ Kah_Na_Fayed = User.create(username: 'Kah Nah Fayed', role: 'Security Officer', 
 # 	approved: true,
 # 	user_id: 'Kah Na Fayed'}]														
 # )
-
-# John_Doe.tasks.build([{title: 'Replace faulty wiring',
-# 	details: 'A wire at main building, level 5, office 3 has come apart and needs to be completely replaced',
-# 	tags: 'electrical, wiring, repair, technician',
-# 	deadline: Date.today + 1.weeks,
-# 	completed: false,
-# 	completion_date: nil,
-# 	approved: false}])
