@@ -40,18 +40,17 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
+              <h5 class="nav-link"><%= link_to 'Home', root_path %></h5>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+							<%# Need to actually redirect this to an about page!%>
+              <h5 class="nav-link"><%= link_to 'About', root_path %></h5>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <h5 class="nav-link"><%= link_to 'Log In', :login %></h5>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <h5 class="nav-link"><%= link_to 'Sign Up', :signup %></h5>
             </li>
           </ul>
         </div>
