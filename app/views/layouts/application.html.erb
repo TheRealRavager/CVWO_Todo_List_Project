@@ -33,25 +33,35 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
-        <a class="navbar-brand" href="/welcome/index">CVWO Task Manager</a>
+        <a class="navbar-brand" href="/welcome/index">CVWO Task Manager<%= ' | Welcome, now logged in as ' + current_user.username.to_s if current_user %></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <h5 class="nav-link"><%= link_to 'Home', root_path %></h5>
-            </li>
-            <li class="nav-item">
+						<%# Different menu options based on whether the user is logged in / is admin %>
+							<h5 class="nav-link"><%= link_to 'Home', root_path %></h5>
+						</li>
+						<li class="nav-item">
 							<%# Need to actually redirect this to an about page!%>
-              <h5 class="nav-link"><%= link_to 'About', root_path %></h5>
-            </li>
-            <li class="nav-item">
-              <h5 class="nav-link"><%= link_to 'Log In', :login %></h5>
-            </li>
-            <li class="nav-item">
-              <h5 class="nav-link"><%= link_to 'Sign Up', :signup %></h5>
-            </li>
+							<h5 class="nav-link"><%= link_to 'About', root_path %></h5>
+						</li>
+							<% if current_user %>
+							<li class="nav-item">
+								<h5 class="nav-link"><%= link_to 'Log Out', :logout %></h5>
+							</li>
+							<li class="nav-item">
+								<h5 class="nav-link"><%= link_to 'Tasks', tasks_path %></h5>
+							</li>
+							<% else %>
+							<li class="nav-item">
+								<h5 class="nav-link"><%= link_to 'Log In', :login %></h5>
+							</li>
+							<li class="nav-item">
+								<h5 class="nav-link"><%= link_to 'Sign Up', :signup %></h5>
+            	</li>
+						<% end%>
           </ul>
         </div>
       </div>
